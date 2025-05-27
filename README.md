@@ -1,24 +1,20 @@
 # 🎮 Loja do Seu Manoel - API de Embalagens
 
-📦 **Sistema automático para cálculo de caixas** de produtos de games
+<div align="center">
+  <img src="https://img.shields.io/badge/.NET-9-512BD4?logo=dotnet" alt=".NET 9">
+  <img src="https://img.shields.io/badge/SQL_Server-2022-CC2927?logo=microsoft-sql-server" alt="SQL Server">
+  <img src="https://img.shields.io/badge/Docker-2.0-2496ED?logo=docker" alt="Docker">
+</div>
 
-## ✨ Funcionalidades Principais
-- **Cálculo inteligente** de caixas para N produtos
-- **Otimização de espaço**: agrupa itens na menor caixa possível
-- **3 tamanhos de caixa** pré-definidos:
-• Caixa 1: 30x40x80cm
-• Caixa 2: 80x50x40cm
-• Caixa 3: 50x80x60cm
+## ✨ Funcionalidades
+- **Cálculo automático** de caixas ideais para produtos
+- **Otimização inteligente** de espaço (agrupa itens quando possível)
+- **3 modelos de caixa** pré-definidos:
+  - `P` (30x40x80cm)
+  - `M` (80x50x40cm)
+  - `G` (50x80x60cm)
 
-- **Documentação interativa** via Swagger
-
-## 🚀 Como Usar
-### Requisitos
-- Docker ([Download](https://www.docker.com/get-started))
-- Git
-
-### Passo a Passo
-bash
+## 🚀 Como Executar
 # 1. Clone o repositório
 git clone https://github.com/xsena7/loja-manoel.git
 cd loja-manoel
@@ -26,13 +22,11 @@ cd loja-manoel
 # 2. Inicie os containers
 docker-compose up --build
 
-# 3. Acesse no navegador:
-#    • Swagger: http://localhost:5000/swagger
-#    • API: http://localhost:5000/api/Embalagem
+# 3. Acesse:
+#    Swagger: http://localhost:5000/swagger
+#    API: http://localhost:5000/api/Embalagem
 
-🧪 Testando a API
-Exemplo de Request:
-
+## 🧩 Exemplo de Uso
 POST /api/Embalagem
 [
   {
@@ -40,17 +34,16 @@ POST /api/Embalagem
     "produtos": [
       {
         "id": 1,
-        "nome": "PlayStation 5",
-        "altura": 40,
+        "nome": "Console Xbox",
+        "altura": 15,
         "largura": 30,
-        "comprimento": 20
+        "comprimento": 25
       }
     ]
   }
 ]
 
-Exemplo de Response:
-
+## Response: 
 {
   "pedidoId": 1,
   "caixasUsadas": [
@@ -61,12 +54,13 @@ Exemplo de Response:
   ]
 }
 
-🛠️ Tecnologias Usadas
-Tecnologia	Função
-.NET 9	Backend da API
-SQL Server	Banco de dados
-Docker	Containerização
-Swagger	Documentação
+## 👨‍💻 Tecnologias
+Backend: .NET 9
+Banco de Dados: SQL Server 2022
+Containerização: Docker
+Documentação: Swagger UI
 
-⁉️ Dúvidas?
-Abra uma Issue no GitHub ou me chame no [LinkedIn](https://www.linkedin.com/in/xsena7/)
+
+## 📞 Contato
+[LinkedIn](https://www.linkedin.com/in/xsena7/)
+
