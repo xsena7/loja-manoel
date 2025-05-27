@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "S3nh@F0rt3!2024"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"
+      MSSQL_AGENT_ENABLED: "True"  # Adicionei esta linha
+    ports:
+      - "1433:1433"
+    volumes:
+      - lojamanoel_sql_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'S3nh@F0rt3!2024' -Q 'SELECT 1' || exit 0"]
+      interval: 15s  # Aumentei o intervalo
+      timeout: 15s   # Aumentei o timeout
+      retries: 5     # Reduzi as tentativas
+
+  api:
+    build: .
+    ports:
+      - "5000:80"
+    environment:
+      ASPNETCORE_URLS: "http://+:80"
+      ConnectionStrings__DefaultConnection: "Server=db;Database=LojaManoel;User=sa;Password=S3nh@F0rt3!2024;TrustServerCertificate=True;"
+    depends_on:
+      db:
+        condition: service_started  # Não depende do healthcheck
+
+volumes:
+  lojamanoel_sql_data:
